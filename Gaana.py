@@ -39,25 +39,23 @@ song9 = Songs("Speed Drive", "Charli XCX", "01:57")
 
 song10 = Songs("Yaar Ka Sataya Hua Hai", "B Praak, Jaani, Nawazuddin Siddiqui, Shehnaz Kaur Gill", "04:28")
 
-# print(vars(song1))
+print(vars(song1))
+print(vars(song2))
+print(vars(song3))
 
-# print(vars(song2))
 
-# print(vars(song3))
+print(vars(song4))
 
-# print(vars(song4))
+print(vars(song5))
+print(vars(song6))
 
-# print(vars(song5))
+print(vars(song7))
 
-# print(vars(song6))
+print(vars(song8))
 
-# print(vars(song7))
+print(vars(song9))
 
-# print(vars(song8))
-
-# print(vars(song9))
-
-# print(vars(song10))
+print(vars(song10))
 
 song1.show()
 

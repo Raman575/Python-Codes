@@ -1,23 +1,28 @@
-from OOPS2 import  Menu, Restaurant
-print("Welcome to Restaurant")
 def apply_promo_code(amount, promo_code):
     if promo_code == "WELCOME50":
         if amount >= 159:
             print("Promo Code Applied Successfully...")
+
             discount = 0.50 * amount
+
             if discount >= 100:
                 discount = 100
+
             amount_to_pay = amount - discount
             print("Please Pay: \u20b9", amount_to_pay)
         else:
             print("Amount is Lesser for Promo Code...")
             print("Please Pay: \u20b9", amount)
+
     elif promo_code == "ZOMPAYTM":
         if amount >= 299:
             print("Promo Code Applied Successfully...")
+
             discount = 0.20 * amount
+
             if discount >= 50:
                 discount = 50
+
             amount_to_pay = amount - discount
             print("Please Pay: \u20b9", amount_to_pay)
             print("You will get a cashback of: \u20b9 25")
@@ -27,50 +32,55 @@ def apply_promo_code(amount, promo_code):
     else:
         print("Promo Code Invalid")
         print("Please Pay: \u20b9", amount)
+
 def main():
-     dishes= {
+    menu = {
         "momos": 100,
         "bullets": 60,
         "noodles": 150,
         "burger": 60,
         "fries": 40,
         "cola": 20,     
-      }
-     menu = Menu(title="Snacks", num_of_dishes=len(dishes)) 
-     restaurant1 = Restaurant(name="The Pablo", phone_number="+91 99987 96325", address="Sarabha Nagar", rating="4.3", menu=menu)         
-     restaurant1.show()
-     print("DISHES:")
-     print(dishes)          
-     dishes_name = []
-     quantities = []
-     food_cart = []  # price
-     while True:
-        dish_name = input("Enter Dish Name to add in Cart: ")
-        quantity = int(input("Enter Dish Quantity: "))
-        dishes_name.append(dish_name)
+    }
+    
+    print("MENU")
+    print(menu)
+    
+    item_name = []  # name of food
+    quantities = []  # quantity of food
+    food_cart = []  # price
+    
+    while True:
+        item_names = input("Choose the dish from menu:")
+        quantity = int(input("Enter quantity of food:"))
+        item_name.append(item_names)
         quantities.append(quantity)
-        price = dishes[dish_name] * quantity
+        price = menu[item_names] * quantity
         food_cart.append(price)
-        choice = input("Do You wish to add more items? (yes/no)")
+        
+        choice = input("Do you want to add more to cart? (yes/no)")
         if choice == "no":
             break
-     print(dishes_name)
-     print(quantities)
-     print(food_cart)
-     amount = sum(food_cart)
-     print("TOTAL AMOUNT: \u20b9", amount)
-     message = """
-        Welcome to Restaurant
-        OFFERS FOR TODAY
-        WELCOME50
-        Get 50% OFF up to ₹100
-        Valid on total value of items worth ₹159 or more.
-        ZOMPAYTM
-        Get 20% OFF up to ₹50 and ₹25 Paytm cashback using Paytm
-        Valid on total value of items worth ₹299 or more.
+        
+    print(item_name)
+    print(quantities)
+    print(food_cart)
+        
+    amount = sum(food_cart)
+    print("Amount to pay: \u20b9", amount)
+    
+    message = """
+    TODAY OFFER's 
+    Use code - WELCOME50 
+    You will get 50% discount upto ₹100.
+    Valid on total value of items worth ₹159 or more.
+    
+    Use code - ZOMPAYTM 
+    You will get 20% discount upto ₹50 and ₹25 Paytm cashback using Paytm.
+    Valid on total value of items worth ₹299 or more.
     """
-     print(message)
-     promo_code = input("Enter Promo Code: ")
-     apply_promo_code(amount, promo_code)
+    print(message)
+    promo_code = input("Enter Promo code for discount:")
+    apply_promo_code(amount, promo_code)    
 if __name__ == "__main__":
     main()

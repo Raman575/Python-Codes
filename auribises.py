@@ -4,41 +4,45 @@
 (Python, Typescript, Java) Many sub-categories has Many Courses 
     """
 
-class menu:
+class Menu:
     def __init__(self, name, categories):
         self.name = name
         self.categories = categories
-        
-        def show(self):
-            print("*****************")
-            print(self.name, end="|")
-            print("*****************")
-            
-            
-                
 
-class course:
-     def __init__(self, name, price, rating):
+    def show(self):
+        print(self.name, end=" | ")
+
+    def show_categories(self):
+        for category in self.categories:
+            category.show()
+
+class Course:
+    def __init__(self, name, price, rating):
         self.name = name
         self.price = price
         self.rating = rating
-     def show(self):
-            print("~~~~~~~~~~~~~~~~~~~")
-            print("name:", self.name)
-            print("price:", self.price)
-            print("rating:", self.rating)
-            print("~~~~~~~~~~~~~~~~~~~")
-             
-class category:
-    def __init__(self, name, num_of_courses, num_of_learners):
+
+    def show(self):
+        print("~~~~~~~~~~~~~~~~~~~")
+        print("Name:", self.name)
+        print("Price:", self.price)
+        print("Rating:", self.rating)
+        print("~~~~~~~~~~~~~~~~~~~")
+
+
+class Category:
+    def __init__(self, name, num_of_courses, num_of_learners, courses):
         self.name = name
         self.num_of_courses = num_of_courses
         self.num_of_learners = num_of_learners
-        def show(self):
-            print("_____________________")
-            print("name:", self.name)
-            print("num_of_courses:", self.num_of_courses)
-            print("num_of_learners:", self.num_of_learners)
-            print("_____________________")
-            
+        self.courses = courses
 
+    def show(self):
+        print("_____________________")
+        print("Name:", self.name)
+        print("Number of Courses:", self.num_of_courses)
+        print("_____________________")
+
+    def show_courses(self):
+        for course in self.courses:
+            course.show()
